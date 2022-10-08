@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -6,17 +8,21 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
   @override
+  int _quantity = 1;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home", style: TextStyle(color: Colors.white, fontSize: 20),),
         actions: [
           IconButton(
-            icon: Icon(Icons.add_shopping_cart_outlined, color: Colors.white, size: 12.0,),
-            onPressed: () {},
+              icon: Icon(Icons.exit_to_app, color: Colors.white, size: 25.0,),
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context)=> Login()),
+                );
+              }
           ),
         ],
       ),
@@ -59,7 +65,10 @@ class _HomePageState extends State<HomePage> {
                   child: OutlinedButton(
                     onPressed: () {},
                     child: Text('Semua'),
+
                     style: ButtonStyle(
+                        backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
+                        ),
                         fixedSize: MaterialStateProperty.all(
                           Size(102, 42),
                         ),
@@ -128,11 +137,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Selada"),
                   subtitle: Text("Rp. 30.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
                 ListTile(
                   leading: Container(
@@ -146,11 +187,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Tomat"),
                   subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
                 ListTile(
                   leading: Container(
@@ -164,11 +237,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Mangga"),
                   subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
                 ListTile(
                   leading: Container(
@@ -182,47 +287,44 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Semangka"),
                   subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
                 ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/tomat.png',
-                      width: 300,
-                      height: 300,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
                     ),
-                  ),
-                  title: Text("Tomat"),
-                  subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
-                ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/selada.png',
-                      width: 300,
-                      height: 300,
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
                     ),
-                  ),
-                  title: Text("Selada"),
-                  subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
+
                 ),
               ],
             ),
