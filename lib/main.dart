@@ -31,15 +31,15 @@ class Splashscreen extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color.fromRGBO(98, 174, 53, 1.0),
         body: Center(
-          child: Container(
-            constraints: BoxConstraints.expand(),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/splashscreen.png"), fit: BoxFit.cover,
-              )
+            child: Container(
+                constraints: BoxConstraints.expand(),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/splashscreen.png"), fit: BoxFit.cover,
+                    )
+                )
             )
-          )
-              //color: Colors.lightGreen,2
+          //color: Colors.lightGreen,2
         ),
       ),
     );
@@ -92,10 +92,10 @@ class _Onboarding extends State<Onboarding> {
                             context,
                             MaterialPageRoute(builder: (context) => Login()),
                           );
-                          },
+                        },
                         child: const Text(
-                          "Mulai",
-                          style: TextStyle(color: Colors.white, fontSize: 20,)
+                            "Mulai",
+                            style: TextStyle(color: Colors.white, fontSize: 20,)
                         ),
                       ),
                     )),

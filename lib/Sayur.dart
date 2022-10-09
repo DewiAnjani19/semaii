@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'Sayur.dart';
+import 'home.dart';
 import 'Buah.dart';
 import 'login.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SayurPage extends StatefulWidget {
+  const SayurPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SayurPage> createState() => _SayurPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SayurPageState extends State<SayurPage> {
   @override
   int _quantity = 1;
   Widget build(BuildContext context) {
@@ -65,8 +65,31 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context)=> HomePage()),
+                      );
+                    },
+
+                    child: Text('Semua'),
+
+                    style: ButtonStyle(
+                        fixedSize: MaterialStateProperty.all(
+                          Size(102, 42),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        side: MaterialStateProperty.all(BorderSide(
+                            color: Colors.black.withOpacity(0.25)))),
+                  ),
+                ),
+                Container(
+                  child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Semua', style: TextStyle(color: Colors.white),),
+                    child: Text('Sayur', style: TextStyle(color: Colors.white),),
                     style: ButtonStyle(
                         backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
                         ),
@@ -80,27 +103,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                         side: MaterialStateProperty.all(BorderSide(
                             color: Colors.lightGreen.withOpacity(0.25)))),
-                  ),
-                ),
-                Container(
-                  child: OutlinedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context)=> SayurPage()),
-                      );
-                    },
-                    child: Text('Sayur'),
-                    style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(
-                          Size(102, 42),
-                        ),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                        ),
-                        side: MaterialStateProperty.all(BorderSide(
-                            color: Colors.black.withOpacity(0.25)))),
                   ),
                 ),
                 Container(
@@ -234,144 +236,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/mangga.png',
-                      width: 300,
-                      height: 300,
-                    ),
-                  ),
-                  title: Text("Mangga"),
-                  subtitle: Text("Rp. 10.000"),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            _quantity += 1;
-                          });
-                        },
-                        child: Icon(Icons.add),
-                      ),
-                    ),
-                    Container(
-                      margin:
-                      EdgeInsets.only(left: 20, right: 20),
-                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
-                      ),
-                    ),
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            if(_quantity == 1) return;
-                            _quantity -= 1;
-                          });
-                        },
-                        child: Icon(Icons.remove),
-                      ),
-                    ),
-                  ],
-                ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/semangka.png',
-                      width: 300,
-                      height: 300,
-                    ),
-                  ),
-                  title: Text("Semangka"),
-                  subtitle: Text("Rp. 10.000"),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            _quantity += 1;
-                          });
-                        },
-                        child: Icon(Icons.add),
-                      ),
-                    ),
-                    Container(
-                      margin:
-                      EdgeInsets.only(left: 20, right: 20),
-                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
-                      ),
-                    ),
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            if(_quantity == 1) return;
-                            _quantity -= 1;
-                          });
-                        },
-                        child: Icon(Icons.remove),
-                      ),
-                    ),
-                  ],
-
-                ),
               ],
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Container(
-            height: 55,
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-              horizontal: 21,
-              vertical: 42,
-            ),
-            child: Builder(
-              builder: (context) => ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                ),onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Login()),
-                );
-              },
-                child: const Text(
-                    "Checkout",
-                    style: TextStyle(color: Colors.white, fontSize: 20,)
-                ),
-              ),
-            )
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Login()),
-          );
-        },
       ),
     );
   }
