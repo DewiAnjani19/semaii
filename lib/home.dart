@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:semai/nota.dart';
 import 'Sayur.dart';
 import 'Buah.dart';
 import 'login.dart';
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                     width: 93,
                     height: 60,
                     child: Text(
-                      'Selamat Berbelanja',
+                      'Temukan! bibit yang anda cari',
                       style: TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w800),
                     ),
@@ -333,30 +334,25 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ],
-
                 ),
               ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      bottomNavigationBar: BottomAppBar(
         child: Container(
-            height: 55,
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-              horizontal: 21,
-              vertical: 42,
-            ),
+            height: 50.0,
+            color: Colors.white,
             child: Builder(
               builder: (context) => ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(0)),
                 ),onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Login()),
+                  MaterialPageRoute(builder: (context) => NotaPage()),
                 );
               },
                 child: const Text(
@@ -366,13 +362,8 @@ class _HomePageState extends State<HomePage> {
               ),
             )
         ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Login()),
-          );
-        },
       ),
     );
+
   }
 }

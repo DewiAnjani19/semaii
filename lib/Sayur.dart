@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 import 'Buah.dart';
 import 'login.dart';
+import 'nota.dart';
 
 class SayurPage extends StatefulWidget {
   const SayurPage({Key? key}) : super(key: key);
@@ -239,6 +240,29 @@ class _SayurPageState extends State<SayurPage> {
               ],
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+            height: 50.0,
+            color: Colors.lightGreen,
+            child: Builder(
+              builder: (context) => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0)),
+                ),onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotaPage()),
+                );
+              },
+                child: const Text(
+                    "Checkout",
+                    style: TextStyle(color: Colors.white, fontSize: 20,)
+                ),
+              ),
+            )
         ),
       ),
     );

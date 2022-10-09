@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Sayur.dart';
 import 'home.dart';
 import 'login.dart';
+import 'nota.dart';
 
 class BuahPage extends StatefulWidget {
   const BuahPage({Key? key}) : super(key: key);
@@ -240,6 +241,29 @@ class _BuahPageState extends State<BuahPage> {
               ],
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+            height: 50.0,
+            color: Colors.lightGreen,
+            child: Builder(
+              builder: (context) => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0)),
+                ),onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotaPage()),
+                );
+              },
+                child: const Text(
+                    "Checkout",
+                    style: TextStyle(color: Colors.white, fontSize: 20,)
+                ),
+              ),
+            )
         ),
       ),
     );
