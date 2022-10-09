@@ -264,7 +264,7 @@ class _BuahPageState extends State<BuahPage> {
                 ),
               ),
             )
-        ),
+          ),
       ),
     );
   }
