@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:semai/nota.dart';
+import 'Sayur.dart';
+import 'Buah.dart';
 import 'login.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,6 +10,7 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
+
 class _HomePageState extends State<HomePage> {
   @override
   int _quantity = 1;
@@ -45,13 +48,13 @@ class _HomePageState extends State<HomePage> {
                     width: 93,
                     height: 60,
                     child: Text(
-                      'Selamat Berbelanja',
+                      'Temukan! bibit yang anda cari',
                       style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.w800),
+                          fontSize: 18, fontWeight: FontWeight.w800),
                     ),
                   ),
                   Image.asset(
-                    'assets/Vector (2).png',
+                    'assets/apel.png',
                     fit: BoxFit.cover,
                     alignment: new Alignment(-4.0, -1.0),
                   )
@@ -64,8 +67,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Semua'),
-
+                    child: Text('Semua', style: TextStyle(color: Colors.white),),
                     style: ButtonStyle(
                         backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
                         ),
@@ -78,12 +80,16 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         side: MaterialStateProperty.all(BorderSide(
-                            color: Colors.black.withOpacity(0.25)))),
+                            color: Colors.lightGreen.withOpacity(0.25)))),
                   ),
                 ),
                 Container(
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context)=> SayurPage()),
+                      );
+                    },
                     child: Text('Sayur'),
                     style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(
@@ -100,7 +106,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context)=> BuahPage()),
+                      );
+                    },
                     child: Text('Buah'),
                     style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(
@@ -324,13 +334,36 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ],
-
                 ),
               ],
             ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 50.0,
+          color: Colors.white,
+            child: Builder(
+              builder: (context) => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0)),
+                ),onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotaPage()),
+                );
+              },
+                child: const Text(
+                    "Checkout",
+                    style: TextStyle(color: Colors.white, fontSize: 20,)
+                ),
+              ),
+            )
+        ),
+        ),
     );
+
   }
 }
