@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:semai/nota.dart';
+import 'Sayur.dart';
+import 'buah.dart';
+import 'login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,14 +13,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  int _quantity = 1;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home", style: TextStyle(color: Colors.white, fontSize: 20),),
         actions: [
           IconButton(
-            icon: Icon(Icons.add_shopping_cart_outlined, color: Colors.white, size: 12.0,),
-            onPressed: () {},
+              icon: Icon(Icons.exit_to_app, color: Colors.white, size: 25.0,),
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context)=> Login()),
+                );
+              }
           ),
         ],
       ),
@@ -39,13 +48,13 @@ class _HomePageState extends State<HomePage> {
                     width: 93,
                     height: 60,
                     child: Text(
-                      'Selamat Berbelanja',
+                      'Temukan! bibit yang anda cari',
                       style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.w800),
+                          fontSize: 18, fontWeight: FontWeight.w800),
                     ),
                   ),
                   Image.asset(
-                    'assets/Vector (2).png',
+                    'assets/apel.png',
                     fit: BoxFit.cover,
                     alignment: new Alignment(-4.0, -1.0),
                   )
@@ -58,8 +67,10 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Semua'),
+                    child: Text('Semua', style: TextStyle(color: Colors.white),),
                     style: ButtonStyle(
+                        backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
+                        ),
                         fixedSize: MaterialStateProperty.all(
                           Size(102, 42),
                         ),
@@ -69,12 +80,16 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         side: MaterialStateProperty.all(BorderSide(
-                            color: Colors.black.withOpacity(0.25)))),
+                            color: Colors.lightGreen.withOpacity(0.25)))),
                   ),
                 ),
                 Container(
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context)=> SayurPage()),
+                      );
+                    },
                     child: Text('Sayur'),
                     style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(
@@ -91,7 +106,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context)=> BibitOverview()),
+                      );
+                    },
                     child: Text('Buah'),
                     style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(
@@ -128,11 +147,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Selada"),
                   subtitle: Text("Rp. 30.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
                 ListTile(
                   leading: Container(
@@ -146,11 +197,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Tomat"),
                   subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
                 ListTile(
                   leading: Container(
@@ -164,11 +247,43 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Mangga"),
                   subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
                 ListTile(
                   leading: Container(
@@ -182,53 +297,73 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text("Semangka"),
                   subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
                 ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/tomat.png',
-                      width: 300,
-                      height: 300,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
                     ),
-                  ),
-                  title: Text("Tomat"),
-                  subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
-                ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/selada.png',
-                      width: 300,
-                      height: 300,
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
                     ),
-                  ),
-                  title: Text("Selada"),
-                  subtitle: Text("Rp. 10.000"),
-                  trailing: IconButton(
-                    icon: Icon(Icons.add_shopping_cart),
-                    color: Theme.of(context).errorColor,
-                    onPressed: () {},
-                  ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+            height: 50.0,
+            color: Colors.white,
+            child: Builder(
+              builder: (context) => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0)),
+                ),onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotaPage()),
+                );
+              },
+                child: const Text(
+                    "Checkout",
+                    style: TextStyle(color: Colors.white, fontSize: 20,)
+                ),
+              ),
+            )
+        ),
+      ),
     );
+
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:semai/buah.dart';
 import 'home.dart';
-import 'buah.dart';
 import 'login.dart';
 import 'nota.dart';
 
@@ -48,7 +48,7 @@ class _SayurPageState extends State<SayurPage> {
                     width: 93,
                     height: 60,
                     child: Text(
-                      'Selamat Berbelanja',
+                      'Temukan! bibit yang anda cari',
                       style: TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w800),
                     ),
@@ -110,7 +110,7 @@ class _SayurPageState extends State<SayurPage> {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context)=> BuahPage()),
+                        MaterialPageRoute(builder: (context)=> BibitOverview()),
                       );
                     },
                     child: Text('Buah'),
