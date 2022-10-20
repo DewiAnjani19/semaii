@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD:lib/buah.dart
+import 'Sayur.dart';
 import 'home.dart';
-import 'Buah.dart';
 import 'login.dart';
 import 'nota.dart';
+
+class BuahPage extends StatefulWidget {
+  const BuahPage({Key? key}) : super(key: key);
+
+  @override
+  State<BuahPage> createState() => _BuahPageState();
+}
+
+class _BuahPageState extends State<BuahPage> {
+=======
+import 'package:semai/buah/buah.dart';
+import '../home.dart';
+import '../login.dart';
+import '../nota.dart';
 
 class SayurPage extends StatefulWidget {
   const SayurPage({Key? key}) : super(key: key);
@@ -12,6 +27,7 @@ class SayurPage extends StatefulWidget {
 }
 
 class _SayurPageState extends State<SayurPage> {
+>>>>>>> dewi:lib/sayur/sayur.dart
   @override
   int _quantity = 1;
   Widget build(BuildContext context) {
@@ -48,7 +64,7 @@ class _SayurPageState extends State<SayurPage> {
                     width: 93,
                     height: 60,
                     child: Text(
-                      'Selamat Berbelanja',
+                      'Temukan! bibit yang anda cari',
                       style: TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w800),
                     ),
@@ -74,6 +90,8 @@ class _SayurPageState extends State<SayurPage> {
 
                     child: Text('Semua'),
 
+<<<<<<< HEAD:lib/buah.dart
+=======
                     style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(
                           Size(102, 42),
@@ -91,9 +109,8 @@ class _SayurPageState extends State<SayurPage> {
                   child: OutlinedButton(
                     onPressed: () {},
                     child: Text('Sayur', style: TextStyle(color: Colors.white),),
+>>>>>>> dewi:lib/sayur/sayur.dart
                     style: ButtonStyle(
-                        backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
-                        ),
                         fixedSize: MaterialStateProperty.all(
                           Size(102, 42),
                         ),
@@ -110,10 +127,11 @@ class _SayurPageState extends State<SayurPage> {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context)=> BuahPage()),
+<<<<<<< HEAD:lib/buah.dart
+                        MaterialPageRoute(builder: (context)=> SayurPage()),
                       );
                     },
-                    child: Text('Buah'),
+                    child: Text('Sayur'),
                     style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(
                           Size(102, 42),
@@ -125,6 +143,31 @@ class _SayurPageState extends State<SayurPage> {
                         ),
                         side: MaterialStateProperty.all(BorderSide(
                             color: Colors.black.withOpacity(0.25)))),
+                  ),
+                ),
+                Container(
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    child: Text('Buah',  style: TextStyle(color: Colors.white),),
+=======
+                        MaterialPageRoute(builder: (context)=> BibitOverview()),
+                      );
+                    },
+                    child: Text('Buah'),
+>>>>>>> dewi:lib/sayur/sayur.dart
+                    style: ButtonStyle(
+                        backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
+                        ),
+                        fixedSize: MaterialStateProperty.all(
+                          Size(102, 42),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        side: MaterialStateProperty.all(BorderSide(
+                            color: Colors.lightGreen.withOpacity(0.25)))),
                   ),
                 ),
               ],
@@ -142,6 +185,32 @@ class _SayurPageState extends State<SayurPage> {
                     height: 50,
                     width: 50,
                     child: Image.asset(
+<<<<<<< HEAD:lib/buah.dart
+                      'assets/mangga.png',
+                      width: 300,
+                      height: 300,
+                    ),
+                  ),
+                  title: Text("Mangga"),
+                  subtitle: Text("Rp. 10.000"),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+=======
                       'assets/selada.png',
                       width: 300,
                       height: 300,
@@ -216,6 +285,62 @@ class _SayurPageState extends State<SayurPage> {
                         child: Icon(Icons.add),
                       ),
                     ),
+>>>>>>> dewi:lib/sayur/sayur.dart
+                    Container(
+                      margin:
+                      EdgeInsets.only(left: 20, right: 20),
+                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
+                      ),
+<<<<<<< HEAD:lib/buah.dart
+                    ),
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
+                ),
+                ListTile(
+                  leading: Container(
+                    height: 50,
+                    width: 50,
+                    child: Image.asset(
+                      'assets/semangka.png',
+                      width: 300,
+                      height: 300,
+                    ),
+                  ),
+                  title: Text("Semangka"),
+                  subtitle: Text("Rp. 10.000"),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+=======
+                    ),
+>>>>>>> dewi:lib/sayur/sayur.dart
+                    Container(
+                      width: 55,
+                      height: 30,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          setState(() {
+<<<<<<< HEAD:lib/buah.dart
+                            _quantity += 1;
+                          });
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                    ),
                     Container(
                       margin:
                       EdgeInsets.only(left: 20, right: 20),
@@ -236,6 +361,17 @@ class _SayurPageState extends State<SayurPage> {
                       ),
                     ),
                   ],
+
+=======
+                            if(_quantity == 1) return;
+                            _quantity -= 1;
+                          });
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ],
+>>>>>>> dewi:lib/sayur/sayur.dart
                 ),
               ],
             ),
@@ -263,7 +399,11 @@ class _SayurPageState extends State<SayurPage> {
                 ),
               ),
             )
+<<<<<<< HEAD:lib/buah.dart
+          ),
+=======
         ),
+>>>>>>> dewi:lib/sayur/sayur.dart
       ),
     );
   }
