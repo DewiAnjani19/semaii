@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:semai/bibitbuah.dart';
+import 'package:semai/buah/bibitbuah.dart';
 // import 'Sayur.dart';
 // import 'home.dart';
 // import 'login.dart';

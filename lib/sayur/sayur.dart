@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:semai/buah.dart';
-import 'home.dart';
-import 'login.dart';
-import 'nota.dart';
+import 'package:semai/buah/buah.dart';
+import '../home.dart';
+import '../login.dart';
+import '../nota.dart';
 
 class SayurPage extends StatefulWidget {
   const SayurPage({Key? key}) : super(key: key);
