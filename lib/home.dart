@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:semai/nota.dart';
 import 'Sayur.dart';
+<<<<<<< HEAD
 import 'buah.dart';
+=======
+import 'Buah.dart';
+>>>>>>> e332a54d642668ddd496641ff881bd249acde1d1
 import 'login.dart';
 
 class HomePage extends StatefulWidget {
@@ -108,7 +112,11 @@ class _HomePageState extends State<HomePage> {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.pushReplacement(context,
+<<<<<<< HEAD
                         MaterialPageRoute(builder: (context)=> BibitOverview()),
+=======
+                        MaterialPageRoute(builder: (context)=> BuahPage()),
+>>>>>>> e332a54d642668ddd496641ff881bd249acde1d1
                       );
                     },
                     child: Text('Buah'),
@@ -342,8 +350,13 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
+<<<<<<< HEAD
             height: 50.0,
             color: Colors.white,
+=======
+          height: 50.0,
+          color: Colors.white,
+>>>>>>> e332a54d642668ddd496641ff881bd249acde1d1
             child: Builder(
               builder: (context) => ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -362,7 +375,11 @@ class _HomePageState extends State<HomePage> {
               ),
             )
         ),
+<<<<<<< HEAD
       ),
+=======
+        ),
+>>>>>>> e332a54d642668ddd496641ff881bd249acde1d1
     );
 
   }
