@@ -9,6 +9,7 @@ class NotaPage extends StatefulWidget {
 
 class _NotaPageState extends State<NotaPage> {
   @override
+<<<<<<< HEAD
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +19,16 @@ class _NotaPageState extends State<NotaPage> {
           IconButton(
               icon: Icon(Icons.share, color: Colors.white, size: 25.0,),
               onPressed: () { }
+=======
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home", style: TextStyle(color: Colors.white, fontSize: 20),),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.share, color: Colors.white, size: 25.0,),
+              onPressed: () {}
+>>>>>>> 9463a064833d50d7ea163ad9e8654c86f002fb9b
           ),
         ],
       ),
@@ -30,12 +41,16 @@ class _NotaPageState extends State<NotaPage> {
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0)),
+<<<<<<< HEAD
                 ),onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NotaPage()),
                 );
               },
+=======
+                ),onPressed: () {},
+>>>>>>> 9463a064833d50d7ea163ad9e8654c86f002fb9b
                 child: const Text(
                     "Print",
                     style: TextStyle(color: Colors.white, fontSize: 20,)

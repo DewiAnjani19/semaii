@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:semai/nota.dart';
-import 'Sayur.dart';
-<<<<<<< HEAD
-import 'buah/buah.dart';
-=======
+import 'home.dart';
 import 'Buah.dart';
->>>>>>> 9463a064833d50d7ea163ad9e8654c86f002fb9b
 import 'login.dart';
+import 'nota.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SayurPage extends StatefulWidget {
+  const SayurPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SayurPage> createState() => _SayurPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SayurPageState extends State<SayurPage> {
   @override
   int _quantity = 1;
   Widget build(BuildContext context) {
@@ -52,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                     width: 93,
                     height: 60,
                     child: Text(
-                      'Temukan! bibit yang anda cari',
+                      'Selamat Berbelanja',
                       style: TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w800),
                     ),
@@ -70,8 +66,31 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context)=> HomePage()),
+                      );
+                    },
+
+                    child: Text('Semua'),
+
+                    style: ButtonStyle(
+                        fixedSize: MaterialStateProperty.all(
+                          Size(102, 42),
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        side: MaterialStateProperty.all(BorderSide(
+                            color: Colors.black.withOpacity(0.25)))),
+                  ),
+                ),
+                Container(
+                  child: OutlinedButton(
                     onPressed: () {},
-                    child: Text('Semua', style: TextStyle(color: Colors.white),),
+                    child: Text('Sayur', style: TextStyle(color: Colors.white),),
                     style: ButtonStyle(
                         backgroundColor : MaterialStatePropertyAll<Color>(Colors.lightGreen
                         ),
@@ -91,33 +110,7 @@ class _HomePageState extends State<HomePage> {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context)=> SayurPage()),
-                      );
-                    },
-                    child: Text('Sayur'),
-                    style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(
-                          Size(102, 42),
-                        ),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                        ),
-                        side: MaterialStateProperty.all(BorderSide(
-                            color: Colors.black.withOpacity(0.25)))),
-                  ),
-                ),
-                Container(
-                  child: OutlinedButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context,
-<<<<<<< HEAD
-                        MaterialPageRoute(builder: (context)=> BibitOverview()),
-                        // MaterialPageRoute(builder: (context)=> BuahPage()),
-=======
                         MaterialPageRoute(builder: (context)=> BuahPage()),
->>>>>>> 9463a064833d50d7ea163ad9e8654c86f002fb9b
                       );
                     },
                     child: Text('Buah'),
@@ -244,106 +237,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/mangga.png',
-                      width: 300,
-                      height: 300,
-                    ),
-                  ),
-                  title: Text("Mangga"),
-                  subtitle: Text("Rp. 10.000"),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            _quantity += 1;
-                          });
-                        },
-                        child: Icon(Icons.add),
-                      ),
-                    ),
-                    Container(
-                      margin:
-                      EdgeInsets.only(left: 20, right: 20),
-                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
-                      ),
-                    ),
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            if(_quantity == 1) return;
-                            _quantity -= 1;
-                          });
-                        },
-                        child: Icon(Icons.remove),
-                      ),
-                    ),
-                  ],
-                ),
-                ListTile(
-                  leading: Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(
-                      'assets/semangka.png',
-                      width: 300,
-                      height: 300,
-                    ),
-                  ),
-                  title: Text("Semangka"),
-                  subtitle: Text("Rp. 10.000"),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            _quantity += 1;
-                          });
-                        },
-                        child: Icon(Icons.add),
-                      ),
-                    ),
-                    Container(
-                      margin:
-                      EdgeInsets.only(left: 20, right: 20),
-                      child: Text(_quantity.toString(), style: TextStyle(fontSize: 14)
-                      ),
-                    ),
-                    Container(
-                      width: 55,
-                      height: 30,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          setState(() {
-                            if(_quantity == 1) return;
-                            _quantity -= 1;
-                          });
-                        },
-                        child: Icon(Icons.remove),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ],
@@ -351,18 +244,8 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-<<<<<<< HEAD
             height: 50.0,
-            color: Colors.white,
-=======
-<<<<<<< HEAD
-            height: 50.0,
-            color: Colors.white,
-=======
-          height: 50.0,
-          color: Colors.white,
->>>>>>> c1b30c11f68a34f1930dd17e83adff424208c264
->>>>>>> 9463a064833d50d7ea163ad9e8654c86f002fb9b
+            color: Colors.lightGreen,
             child: Builder(
               builder: (context) => ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -381,18 +264,7 @@ class _HomePageState extends State<HomePage> {
               ),
             )
         ),
-<<<<<<< HEAD
       ),
-
-        );
-=======
-<<<<<<< HEAD
-      ),
-=======
-        ),
->>>>>>> c1b30c11f68a34f1930dd17e83adff424208c264
     );
->>>>>>> 9463a064833d50d7ea163ad9e8654c86f002fb9b
-
   }
 }
